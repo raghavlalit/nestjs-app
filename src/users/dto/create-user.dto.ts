@@ -13,6 +13,10 @@ export class CreateUserDto {
     @IsNotEmpty()
     readonly password: string;
 
+
+    @IsNotEmpty()
+    readonly phone: string;
+
     @IsNotEmpty()
     readonly isActive: boolean;
 }

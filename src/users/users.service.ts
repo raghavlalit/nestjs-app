@@ -17,7 +17,7 @@ export class UsersService {
 
   //Create New record
   async create(createUserDto: CreateUserDto): Promise<CreateUserDto> {
-    const {firstName, lastName, email, password, isActive} = createUserDto;
+    const {firstName, lastName, email, phone, password, isActive} = createUserDto;
     const qb = this.usersRepository
       .createQueryBuilder('user')
       .where('user.email = :email', { email });
@@ -34,6 +34,7 @@ export class UsersService {
     newUser.firstName = firstName;
     newUser.lastName = lastName;
     newUser.email = email;
+    newUser.phone = phone;
     newUser.password = password;
     newUser.isActive = isActive;
 

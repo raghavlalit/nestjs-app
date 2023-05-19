@@ -1,9 +1,8 @@
-import { Entity, Column, BeforeInsert, PrimaryGeneratedColumn } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, BeforeInsert } from 'typeorm';
 import * as argon2 from 'argon2';
 
-
 @Entity()
-export class User {
+export class User{
     @PrimaryGeneratedColumn()
     id: number;
 
@@ -17,6 +16,9 @@ export class User {
     email: string;
 
     @Column()
+    phone: string;
+
+    @Column()
     password: string;
 
     @BeforeInsert()
@@ -26,4 +28,10 @@ export class User {
 
     @Column({ default: true })
     isActive: boolean;
+
+    @CreateDateColumn()
+    createdDate: Date;
+
+    @UpdateDateColumn()
+    updatedDate: Date;
 }

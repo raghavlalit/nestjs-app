@@ -13,5 +13,8 @@ export class UpdateUserDto extends PartialType(CreateUserDto) {
     readonly email: string;
 
     @IsNotEmpty()
+    readonly phone: string;
+
+    @IsNotEmpty()
     readonly isActive: boolean;
 }
