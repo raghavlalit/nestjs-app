@@ -18,7 +18,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
       host: 'localhost',
       port: 3306,
       username: 'root',
-      password: 'root',
+      password: '',
       database: 'nest-app-test',
       entities: [User, Newsletter],
       synchronize: true,

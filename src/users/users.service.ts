@@ -18,11 +18,7 @@ export class UsersService {
   //Create New record
   async create(createUserDto: CreateUserDto): Promise<CreateUserDto> {
     const {firstName, lastName, email, phone, password, isActive} = createUserDto;
-    const qb = this.usersRepository
-      .createQueryBuilder('user')
-      .where('user.email = :email', { email });
-
-    const user = await qb.getOne();
+    const user = this.usersRepository.findOneBy({email: email})
 
     if (user) {
       const errors = {email: 'Email must be unique.'};
